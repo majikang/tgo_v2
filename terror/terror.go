@@ -20,6 +20,9 @@ const (
 )
 
 func New(code int) *TError {
+	if code == 1001 || code == 0 {
+		return nil
+	}
 	err := &TError{Code: code}
 	if code < 100000 && code >= 10000 {
 		err.Level = LevelException
